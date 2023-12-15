@@ -1,0 +1,26 @@
+package org.acme.geometry;
+
+public class Point implements Geometry {
+    private Coordinate coordinate;
+
+    public Point() {
+        this.coordinate = new Coordinate();
+    }
+
+    public Point(Coordinate coordinate) {
+        if (coordinate == null) {
+            throw new NullPointerException("coordinate cannot be null");
+        }
+        this.coordinate = coordinate;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    @Override
+    public String getType() {
+        return "Point";
+    }
+
+}
