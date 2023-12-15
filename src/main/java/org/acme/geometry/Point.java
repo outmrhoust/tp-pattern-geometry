@@ -32,4 +32,8 @@ public class Point implements Geometry {
     public void translate(double dx, double dy) {
         this.coordinate =  new Coordinate(this.coordinate.getX() + dx, this.coordinate.getY() + dy);
     }
+    @Override
+    public Point clone() {
+        return new Point(this.coordinate);
+    }
 }
