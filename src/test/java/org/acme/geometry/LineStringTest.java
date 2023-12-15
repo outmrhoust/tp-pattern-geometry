@@ -42,5 +42,10 @@ public class LineStringTest {
     public void testNullLineString() {
         LineString l = new LineString(null);
     }
+    @Test
+    public void testIsEmpty() {
+        LineString l = new LineString();
+        Assert.assertTrue(l.isEmpty());
+    }
 
 }

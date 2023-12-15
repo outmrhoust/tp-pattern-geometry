@@ -19,4 +19,9 @@ public class PointTest {
     public void testNullPoint() {
         Point p = new Point(null);
     }
+    @Test
+    public void testIsEmpty() {
+        Point p = new Point();
+        Assert.assertTrue(p.isEmpty());
+    }
 }
