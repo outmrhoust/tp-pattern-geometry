@@ -5,4 +5,5 @@ public interface Geometry {
     boolean isEmpty();
     void translate(double dx, double dy);
     Geometry clone();
+    Envelope getEnvelope();
 }

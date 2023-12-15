@@ -38,4 +38,13 @@ public class PointTest {
         Assert.assertEquals(3.0, p2.getCoordinate().getX(), 1.0e-15);
         Assert.assertEquals(4.0, p2.getCoordinate().getY(), 1.0e-15);
     }
+    @Test
+    public void testGetEnvelope() {
+        Point p = new Point(new Coordinate(3.0, 4.0));
+        Envelope e = p.getEnvelope();
+        Assert.assertEquals(3.0, e.getXmin(), 1.0e-15);
+        Assert.assertEquals(4.0, e.getYmin(), 1.0e-15);
+        Assert.assertEquals(3.0, e.getXmax(), 1.0e-15);
+        Assert.assertEquals(4.0, e.getYmax(), 1.0e-15);
+    }
 }
