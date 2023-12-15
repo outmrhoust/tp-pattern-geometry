@@ -6,4 +6,5 @@ public interface Geometry {
     void translate(double dx, double dy);
     Geometry clone();
     Envelope getEnvelope();
+    void accept(GeometryVisitor visitor);
 }

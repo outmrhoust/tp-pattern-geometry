@@ -29,6 +29,7 @@ public class Coordinate {
         return Double.isNaN(this.x) || Double.isNaN(this.y);
     }
 
+    @Override
     public String toString() {
         return "[" + this.x + "," + this.y + "]";
     }

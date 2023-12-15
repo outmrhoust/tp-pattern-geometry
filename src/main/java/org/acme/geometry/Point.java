@@ -42,4 +42,8 @@ public class Point implements Geometry {
         envelopeBuilder.insert(this.coordinate);
         return envelopeBuilder.build();
     }
+    @Override
+    public void accept(GeometryVisitor visitor) {
+        visitor.visit(this);
+    }
 }

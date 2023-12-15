@@ -36,6 +36,7 @@ public class Envelope {
     public double getYmax() {
         return this.topRight.getY();
     }
+    @Override
     public String toString() {
         return "[" + this.getXmin() + "," + this.getYmin() + "," + this.getXmax() + "," + this.getYmax() + "]";
     }
