@@ -77,4 +77,10 @@ public class GeometryWithCachedEnvelopeTest {
         l.translate(1.0, 1.0);
         Assert.assertEquals(6.0, e.getEnvelope().getYmax(), 1.0e-15);
     }
+    @Test
+    public void testAsText() {
+        Geometry g = new Point(new Coordinate(3.0, 4.0));
+        Geometry g2 = new GeometryWithCachedEnvelope(g);
+        Assert.assertEquals(g.asText(), g2.asText());
+    }
 }

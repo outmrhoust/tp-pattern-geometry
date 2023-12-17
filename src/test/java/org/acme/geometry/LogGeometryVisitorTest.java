@@ -76,6 +76,22 @@ public class LogGeometryVisitorTest {
         Assert.assertEquals("", result);
     }
 
+    @Test
+    public void testVisitGeometryCollection() throws UnsupportedEncodingException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(os);
+        LogGeometryVisitor visitor = new LogGeometryVisitor(out);
+        ArrayList<Geometry> geometries = new ArrayList<>();
+        Geometry geometry = new Point(new Coordinate(3.0,4.0));
+        Geometry geometry2 = new Point(new Coordinate(3.0,4.0));
+        geometries.add(geometry);
+        geometries.add(geometry2);
+        GeometryCollection collection = new GeometryCollection(geometries);
+        collection.accept(visitor);
+        String result = os.toString("UTF8");
+        Assert.assertEquals("Je suis une collection de 2 géométrie(s).", result);
+    }
+
 }
 
 

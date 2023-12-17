@@ -7,6 +7,7 @@ public abstract class AbstractGeometry implements Geometry {
 
     private List<GeometryListener> listeners;
 
+    @Override
     public String asText() {
         WktVisitor visitor = new WktVisitor();
         this.accept(visitor);

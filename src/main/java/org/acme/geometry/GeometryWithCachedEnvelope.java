@@ -42,6 +42,11 @@ public class GeometryWithCachedEnvelope implements Geometry, GeometryListener {
     }
 
     @Override
+    public String asText() {
+        return this.original.asText();
+    }
+
+    @Override
     public void onChange(Geometry geometry) {
         this.cachedEnvelope = null;
         this.cachedEnvelope = this.original.getEnvelope();
