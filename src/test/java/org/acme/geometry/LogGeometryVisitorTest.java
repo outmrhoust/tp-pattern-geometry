@@ -47,9 +47,6 @@ public class LogGeometryVisitorTest {
         geometry.accept(visitor);
         String result = os.toString("UTF8");
 
-
-
-        //check the output
         Assert.assertEquals("Je suis une polyligne définie par 2 point(s).", result);
 
     }

@@ -47,4 +47,9 @@ public class PointTest {
         Assert.assertEquals(3.0, e.getXmax(), 1.0e-15);
         Assert.assertEquals(4.0, e.getYmax(), 1.0e-15);
     }
+    @Test
+    public void testAsText() {
+        Point p = new Point(new Coordinate(3.0, 4.0));
+        Assert.assertEquals("POINT(3.0 4.0)", p.asText());
+    }
 }
