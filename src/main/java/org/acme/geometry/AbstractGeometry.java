@@ -10,4 +10,11 @@ public abstract class AbstractGeometry implements Geometry {
     }
     @Override
     public abstract AbstractGeometry clone();
+
+    @Override
+    public  Envelope getEnvelope(){
+        EnvelopeBuilder envelopeBuilder = new EnvelopeBuilder();
+        this.accept(envelopeBuilder);
+        return envelopeBuilder.build();
+    }
 }
