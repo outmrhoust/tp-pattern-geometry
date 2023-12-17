@@ -1,7 +1,7 @@
 package org.acme.geometry;
 
 
-public class WktVisitor implements GeometryVisitor {
+public class WktVisitor implements GeometryVisitor<Void> {
     private StringBuilder buffer;
     public WktVisitor() {
         this.buffer = new StringBuilder();
@@ -10,22 +10,23 @@ public class WktVisitor implements GeometryVisitor {
         return this.buffer.toString();
     }
     @Override
-    public void visit(Point point) {
+    public Void visit(Point point) {
         if (point.isEmpty()) {
             this.buffer.append("POINT EMPTY");
-            return;
+            return null;
         }
         this.buffer.append("POINT(");
         this.buffer.append(point.getCoordinate().getX());
         this.buffer.append(" ");
         this.buffer.append(point.getCoordinate().getY());
         this.buffer.append(")");
+        return null;
     }
     @Override
-    public void visit(LineString lineString) {
+    public Void visit(LineString lineString) {
         if (lineString.isEmpty()) {
             this.buffer.append("LINESTRING EMPTY");
-            return;
+            return null;
         }
         this.buffer.append("LINESTRING(");
         for (int i = 0; i < lineString.getNumPoints(); i++) {
@@ -38,13 +39,14 @@ public class WktVisitor implements GeometryVisitor {
             }
         }
         this.buffer.append(")");
+        return null;
     }
 
     @Override
-    public void visit(GeometryCollection geometryCollection) {
+    public Void visit(GeometryCollection geometryCollection) {
         if (geometryCollection.isEmpty()) {
             this.buffer.append("GEOMETRYCOLLECTION EMPTY");
-            return;
+            return null;
         }
         this.buffer.append("GEOMETRYCOLLECTION(");
         for (int i = 0; i < geometryCollection.getNumGeometries(); i++) {
@@ -55,5 +57,6 @@ public class WktVisitor implements GeometryVisitor {
             }
         }
         this.buffer.append(")");
+        return null;
     }
 }

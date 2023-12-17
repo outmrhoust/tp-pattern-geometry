@@ -1,7 +1,7 @@
 package org.acme.geometry;
 
 
-public class EnvelopeBuilder implements GeometryVisitor {
+public class EnvelopeBuilder implements GeometryVisitor<Void> {
     private Coordinate bottomLeft;
     private Coordinate topRight;
 
@@ -28,20 +28,23 @@ public class EnvelopeBuilder implements GeometryVisitor {
     }
 
     @Override
-    public void visit(Point point) {
+    public Void visit(Point point) {
         this.insert(point.getCoordinate());
+        return null;
     }
 
     @Override
-    public void visit(LineString lineString) {
+    public Void visit(LineString lineString) {
         for (int i = 0; i < lineString.getNumPoints(); i++) {
             this.insert(lineString.getPointN(i).getCoordinate());
         }
+        return null;
     }
     @Override
-    public void visit(GeometryCollection geometryCollection) {
+    public Void visit(GeometryCollection geometryCollection) {
         for (int i = 0; i < geometryCollection.getNumGeometries(); i++) {
             geometryCollection.getGeometryN(i).accept(this);
         }
+        return null;
     }
 }

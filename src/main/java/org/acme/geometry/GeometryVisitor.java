@@ -1,8 +1,8 @@
 package org.acme.geometry;
 
-public interface GeometryVisitor {
-    void visit(Point point);
-    void visit(LineString lineString);
+public interface GeometryVisitor<T> {
+    T visit(Point point);
+    T visit(LineString lineString);
 
-    void visit(GeometryCollection geometryCollection);
+    T visit(GeometryCollection geometryCollection);
 }
