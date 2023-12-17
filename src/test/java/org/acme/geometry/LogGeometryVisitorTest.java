@@ -66,6 +66,15 @@ public class LogGeometryVisitorTest {
         Assert.assertEquals("Je suis une polyligne vide.", result);
 
     }
+    @Test
+    public void testLogGeometryVisitor() throws UnsupportedEncodingException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        LogGeometryVisitor visitor = new LogGeometryVisitor();
+        Geometry geometry = new Point(new Coordinate(3.0,4.0));
+        geometry.accept(visitor);
+        String result = os.toString("UTF8");
+        Assert.assertEquals("", result);
+    }
 
 }
 

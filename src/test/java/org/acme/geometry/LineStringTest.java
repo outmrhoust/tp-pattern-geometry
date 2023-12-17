@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LineStringTest {
     // test lineString class
@@ -98,4 +97,6 @@ public class LineStringTest {
         LineString l = new LineString(points);
         Assert.assertEquals("LINESTRING(1.0 2.0,-4.0 5.0)", l.asText());
     }
+
+
 }
