@@ -42,8 +42,8 @@ public class LenghtVisitorTest {
         geometries.add(p);
         geometries.add(l);
         GeometryCollection g = new GeometryCollection(geometries);
-        g.accept(visitor);
-        double result = visitor.getLength();
+        double result = g.accept(visitor);
+
         Assert.assertEquals(3.0, result, 1.0e-15);
     }
 }

@@ -6,7 +6,7 @@ public interface Geometry {
     void translate(double dx, double dy);
     Geometry clone();
     Envelope getEnvelope();
-    void accept(GeometryVisitor visitor);
+    <T> T accept(GeometryVisitor<T> visitor);
     void addListener(GeometryListener listener);
 
     String asText();

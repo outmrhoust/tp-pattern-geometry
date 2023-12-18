@@ -40,22 +40,23 @@ public class GeometryCollection extends AbstractGeometry {
     @Override
     public GeometryCollection clone() {
         List<Geometry> newGeometries = new ArrayList<Geometry>();
-        for (int i = 0; i < this.geometries.size(); i++) {
-            newGeometries.add(this.geometries.get(i).clone());
+        for (Geometry geometry : this.geometries) {
+            newGeometries.add(geometry.clone());
         }
         return new GeometryCollection(newGeometries);
     }
 
     @Override
     public void translate(double dx, double dy) {
-        for (int i = 0; i < this.geometries.size(); i++) {
-            this.geometries.get(i).translate(dx, dy);
+        for (Geometry geometry : this.geometries) {
+            geometry.translate(dx, dy);
         }
     }
 
     @Override
-    public void accept(GeometryVisitor visitor) {
-        visitor.visit(this);
+    public <T> T accept(GeometryVisitor<T> visitor) {
+
+        return visitor.visit(this);
     }
 
     @Override

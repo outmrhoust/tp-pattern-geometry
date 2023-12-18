@@ -1,7 +1,7 @@
 package org.acme.geometry;
 
 
-public class WktVisitor implements GeometryVisitor<Void> {
+public class WktVisitor implements GeometryVisitor <Void> {
     private StringBuilder buffer;
     public WktVisitor() {
         this.buffer = new StringBuilder();
